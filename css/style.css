@@ -101,6 +101,10 @@ p{
 img{
   max-width: 600;
   max-height: 700;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 .center{
   display: block;
