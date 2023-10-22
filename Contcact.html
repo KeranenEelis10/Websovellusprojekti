@@ -14,6 +14,9 @@
         <a href="Weather.html">Weather</a>
         <a href="Baby.html">Baby</a>
       </div>
+      <p>
+        Ota yhteyttä minuun täyttämällä alla olevat kohdat
+      </p>
       <div class="container">
         <form action="action_page.php">
       
@@ -57,9 +60,15 @@
           <label for="subject">Aihe</label>
           <textarea id="subject" name="subject" placeholder="Kerro lisää.." style="height:200px"></textarea>
       
-          <input type="submit" value="Lähetä">
+          <button type="button" onclick="submitForm()">Submit</button>
       
         </form>
+        <script>
+            function submitForm() {
+                document.getElementById('contact-form').reset();
+                alert('Tiedot tallennettu');
+            }
+        </script>
       </div>
 </body>
 </html>
