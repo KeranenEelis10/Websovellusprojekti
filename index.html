@@ -34,10 +34,30 @@
         Muista lukea README tiedosto arvioinnin helpottamiseksi
       </p>
       <p>
-        Kello käy...kuinka kauan jaksat viettää aikaa täällä?
+        Jos haluat tietää paljon kello on, se näkyy alapuolella
     </p>
     
     <div id="timer">00:00:00</div>
+    <script>
+        function updateTimer() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            const formattedTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+            document.getElementById('timer').textContent = formattedTime;
+        }
+
+        function pad(number) {
+            return (number < 10) ? "0" + number : number;
+        }
+
+        window.onload = function () {
+            updateTimer(); // Päivitä aika ensin
+            setInterval(updateTimer, 1000); // Päivitä aika sekunnin välein
+        };
+    </script>
 
 
       <div class="bottom-element">
