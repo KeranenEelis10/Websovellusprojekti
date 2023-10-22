@@ -1,4 +1,4 @@
-body{
+/*body{
     background-color: gold;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -10,8 +10,8 @@ body{
     padding: 0;
     overflow-x: hidden;
 }
-
-body{
+*/
+/*darkbody{
   background-color: gold;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -23,7 +23,7 @@ body{
   padding: 0;
   overflow-x: hidden;
 }
-
+*/
 
 h1{
   font-family: 'Times New Roman', Times, serif;
