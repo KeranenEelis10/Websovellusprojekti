@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="timer.js"></script>
 </head>
 <body>
 
@@ -45,7 +46,7 @@
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('City not found');
+                    throw new Error('Kaupunkia ei löytynyt');
                 }
                 return response.json();
             })
@@ -55,7 +56,7 @@
                 document.getElementById('conditions').textContent = data.weather[0].description;
             })
             .catch(error => {
-                document.getElementById('cityName').textContent = 'City not found';
+                document.getElementById('cityName').textContent = 'Kaupunkia ei löytynyt';
                 document.getElementById('temperature').textContent = '';
                 document.getElementById('conditions').textContent = '';
                 console.error('Error:', error);
