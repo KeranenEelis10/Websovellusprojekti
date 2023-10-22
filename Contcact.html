@@ -18,7 +18,7 @@
         Ota yhteyttä minuun täyttämällä alla olevat kohdat
       </p>
       <div class="container">
-        <form action="action_page.php">
+        <form id="contact-form" action="action_page.php" onsubmit="return false">
       
           <label for="fname">Etunimi</label>
           <input type="text" id="fname" name="Etunimi" placeholder="Etunimesi..">
@@ -60,7 +60,7 @@
           <label for="subject">Aihe</label>
           <textarea id="subject" name="subject" placeholder="Kerro lisää.." style="height:200px"></textarea>
       
-          <button type="button" onclick="submitForm()">Submit</button>
+          <button type="button" onclick="submitForm()">Lähetä</button>
       
         </form>
         <script>
