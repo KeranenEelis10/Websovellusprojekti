@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="Me.html">Me</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="Contcact.html">Contact</a>
+    <a href="Weather.html" onclick="haeSaatiedot()">Weather</a>
+    <a href="Baby.html">NHL</a>
+</div>
+<p>
+    Tässä valikossa voit tarkastella eri paikkakuntien säätietoja
+</p>
+
+<div class="widget">
+    <input type="text" id="cityInput" placeholder="Valitse kaupunki">
+    <button id="searchButton">Hae sää</button>
+</div>
+
+<div class="weather-info">
+    <h2>Sää <span id="cityName"></span></h2>
+    <p>Lämpötila: <span id="temperature"></span> &deg;C</p>
+    <p>Tämänhetkiset olosuhteet: <span id="conditions"></span></p>
+</div>
+<script>
+    const apiKey = 'bd49bd259b764493a1dce9d430d67a8c';
+
+    document.getElementById('searchButton').addEventListener('click', function () {
+        const city = document.getElementById('cityInput').value;
+        if (city) {
+            getWeather(city);
+        }
+    });
+
+    function getWeather(city) {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('City not found');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('cityName').textContent = data.name;
+                document.getElementById('temperature').textContent = data.main.temp;
+                document.getElementById('conditions').textContent = data.weather[0].description;
+            })
+            .catch(error => {
+                document.getElementById('cityName').textContent = 'City not found';
+                document.getElementById('temperature').textContent = '';
+                document.getElementById('conditions').textContent = '';
+                console.error('Error:', error);
+            });
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #game-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 50px;
+        }
+        #name-input {
+            margin-top: 20px;
+        }
+
+        #all-names {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #name-list {
+            font-family: 'Times New Roman', Times, serif;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;}
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="Me.html">Me</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Contcact.html">Contact</a>
+        <a href="Weather.html">Weather</a>
+        <a href="Baby.html">Baby</a>
+      </div>
+      <h5>
+        Minulle ja tyttöystävälleni syntyy lapsi ensi vuoden alussa. Arvaa sukupuoli ja ehdota lapselle nimi
+      </h5>
+      <img src="assets/pictures/Vauvakuva.jpg" alt="Vauvakuva">
+
+      <title>Arvuspeli</title>
+    
+</head>
+<body>
+
+<div id="game-container">
+    <h1>Arvuspeli</h1>
+    <p>Arvaa lapsen sukupuoli</p>
+    <select id="guess">
+        <option value="1">Tyttö</option>
+        <option value="2">Poika</option>
+        <option value="3">Ei kumpikaan</option>
+    </select>
+    <button onclick="arvaaNumero()">Arvaa</button>
+    <p id="result"></p>
+</div>
+ <!-- Näytetään nimi-ehdotuslomake vain, kun käyttäjä on arvannut oikein -->
+ <div id="name-input" style="display: none;">
+    <label for="babyName">Ehdota nimeä lapselle:</label>
+    <input type="text" id="babyName">
+    <button onclick="tallennaNimi()">Tallenna nimi</button>
+</div>
+
+<div id="all-names">
+    <h2>Kaikki ehdotetut nimet:</h2>
+    <ul id="name-list"></ul>
+</div>
+
+
+<script>
+    const oikeasukupuoli = 2
+
+    function arvaaNumero() {
+        // Käyttäjän arvaus
+        const arvaus = parseInt(document.getElementById('guess').value);
+
+        // Tarkistetaan, onko arvaus oikein
+        if (arvaus === oikeasukupuoli) {
+            näytäTulos('Oikein!');
+            näytäNimiEhdotusLomake();
+        } else if (arvaus === 2) {
+            näytäTulos('Väärin.');
+        } else {
+            näytäTulos('Väärin.');
+        }
+    }
+
+    function näytäTulos(tulos) {
+        document.getElementById('result').textContent = tulos;
+    }
+    function näytäNimiEhdotusLomake() {
+        // Näytä nimi-ehdotuslomake
+        document.getElementById('name-input').style.display = 'block';
+    }
+    function tallennaNimi() {
+      // Hae ehdotettu nimi
+      const ehdotettuNimi = document.getElementById('babyName').value;
+
+// Lisää nimi listaan
+lisääNimiListaan(ehdotettuNimi);
+
+// Voit tässä vaiheessa käsitellä ehdotettua nimeä (tallentaa sen tietokantaan tai tehdä muuta tarpeellista)
+
+// Ilmoita käyttäjälle, että nimi on tallennettu
+alert('Nimi tallennettu: ' + ehdotettuNimi);
+
+// Tyhjennä kenttä
+document.getElementById('babyName').value = '';
+    }
+    function lisääNimiListaan(nimi) {
+        // Luo uusi li-elementti
+        const uusiLi = document.createElement('li');
+        // Lisää nimi li-elementtiin
+        uusiLi.textContent = nimi;
+        // Lisää li-elementti listaan
+        document.getElementById('name-list').appendChild(uusiLi);}
+</script>
+
+</body>
+</html>
