@@ -1,3 +1,7 @@
+## Web-basics
+
+Basic front-end web development course using HTML and CSS. Year two in OAMK
+
 # Websovellusprojekti
  
 HTML arviointi: 1/5 basic HTML structure, löytyy kaikista html tiedostoista. 2/5 HTML structure with clear content differentiation (headings, paragraphs, lists), löytyy esimerkiksi index.html. 3/5 Use of forms, links, and media, löytyy portfolio.html. 4/5 Tables are effectively used, löytyy Me.html. 5/5 Consistent use of semantic HTML throughout, ensuring better structure and understanding of the content, arvioijan päätettävissä.
